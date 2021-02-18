@@ -45,16 +45,36 @@ class _FlashcardState extends State<Flashcard> {
        ),
       body: Center(
         child: Padding(
-          padding:  EdgeInsets.only(top: 50),
+          padding:  EdgeInsets.only(top: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Center(
+                child: Text(
+                  "Flashcards Pack:",
+                  style: TextStyle(
+                      fontSize: 15,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: Center(
+                  child: Text(
+                      "Italian Words",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 350,
                 width: 350,
                 child: FlipCard(
-                  front: Flashcard_View(text: _properties[_currentIndex].question,),
-                  back: Flashcard_View(text: _properties[_currentIndex].answer,),
+                  front: Flashcard_View(text: _properties[_currentIndex].question, type: "Italian",),
+                  back: Flashcard_View(text: _properties[_currentIndex].answer, type: "English",),
                 ),
               ),
               Padding(
@@ -113,11 +133,7 @@ class _FlashcardState extends State<Flashcard> {
         MaterialPageRoute(
           builder: (context) => add(),
         ));
-    final answerResult = await Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => add(),
-        ));
+
     // after the SecondScreen result comes back update the Text widget with it
     setState(() {
       question = result[0];
