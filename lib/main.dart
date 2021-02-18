@@ -1,3 +1,4 @@
+import 'package:flashcards/Drawer.dart';
 import 'package:flashcards/Flashcard_View.dart';
 import 'package:flashcards/Properties.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,38 @@ class _FlashcardState extends State<Flashcard> {
          centerTitle: true,
          title: Text("Flash Cards"),
        ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const <Widget>[
+            DrawerHeader(
+              // decoration: BoxDecoration(
+              //   image: DecorationImage(
+              //     image: NetworkImage('')),
+              //   ),
+              child: Text(
+                'Welcome',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.list),
+              title: Text('View List'),
+            ),
+            // ListTile(
+            //   leading: Icon(Icons.account_circle),
+            //   title: Text('Profile'),
+            // ),
+            // ListTile(
+            //   leading: Icon(Icons.settings),
+            //   title: Text('Settings'),
+            // ),
+          ],
+        ),
+      ),
       body: Center(
         child: Padding(
           padding:  EdgeInsets.only(top: 30),
