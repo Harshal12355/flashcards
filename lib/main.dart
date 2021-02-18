@@ -57,10 +57,6 @@ class _FlashcardState extends State<Flashcard> {
           padding: EdgeInsets.zero,
           children: const <Widget>[
             DrawerHeader(
-              // decoration: BoxDecoration(
-              //   image: DecorationImage(
-              //     image: NetworkImage('')),
-              //   ),
               child: Text(
                 'Welcome',
                 style: TextStyle(
@@ -73,14 +69,6 @@ class _FlashcardState extends State<Flashcard> {
               leading: Icon(Icons.list),
               title: Text('View List'),
             ),
-            // ListTile(
-            //   leading: Icon(Icons.account_circle),
-            //   title: Text('Profile'),
-            // ),
-            // ListTile(
-            //   leading: Icon(Icons.settings),
-            //   title: Text('Settings'),
-            // ),
           ],
         ),
       ),

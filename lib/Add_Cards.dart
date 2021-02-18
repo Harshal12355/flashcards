@@ -19,7 +19,7 @@ class _addState extends State<add> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Restaurant"),
-        backgroundColor: Colors.blue,
+        //backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Padding(
@@ -30,28 +30,34 @@ class _addState extends State<add> {
               TextField(
                 controller: questionCon,
                 decoration: InputDecoration(
-                  hintText: "Enter question",
+                  hintText: "Front",
                 ),
                 cursorColor: Colors.black,
               ),
               TextField(
                 controller: answerCon,
                 decoration: InputDecoration(
-                  hintText: "Enter answer",
+                  hintText: "Back",
                 ),
                 cursorColor: Colors.black,
               ),
-              RaisedButton(
-                child: Text(
-                  "Submit",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+              Padding(
+                padding: EdgeInsets.only(top: 30,),
+                child: SizedBox(
+                  width: 200,
+
+                  child: RaisedButton(
+                      child: Text(
+                        "Add",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      onPressed: () {
+                        _sendDataBack(context);
+                      },
+                    ),
                 ),
-                color: Colors.blue,
-                onPressed: () {
-                  _sendDataBack(context);
-                },
               ),
             ],
           ),
