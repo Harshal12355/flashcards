@@ -18,50 +18,68 @@ class _addState extends State<add> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Restaurant"),
+        title: Text("Add Cards"),
         //backgroundColor: Colors.blue,
       ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(
-                controller: questionCon,
-                decoration: InputDecoration(
-                  hintText: "Front",
-                ),
-                cursorColor: Colors.black,
-              ),
-              TextField(
-                controller: answerCon,
-                decoration: InputDecoration(
-                  hintText: "Back",
-                ),
-                cursorColor: Colors.black,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 30,),
-                child: SizedBox(
-                  width: 200,
-
-                  child: RaisedButton(
-                      child: Text(
-                        "Add",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      onPressed: () {
-                        _sendDataBack(context);
-                      },
-                    ),
+      body: Column(
+        children: [
+          Padding(
+            padding:  EdgeInsets.fromLTRB(0, 30, 100, 0),
+            child: Container(
+              child: Text(
+                  'Please enter card information',
+                style: TextStyle(
+                  //color: Colors.white,
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+          SizedBox(),
+          Center(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(50, 180, 50, 60),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
+                    controller: questionCon,
+                    decoration: InputDecoration(
+                      hintText: "Front",
+                    ),
+                    cursorColor: Colors.black,
+                  ),
+                  TextField(
+                    controller: answerCon,
+                    decoration: InputDecoration(
+                      hintText: "Back",
+                    ),
+                    cursorColor: Colors.black,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 30,),
+                    child: SizedBox(
+                      width: 200,
+
+                      child: RaisedButton(
+                          child: Text(
+                            "Add",
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          onPressed: () {
+                            _sendDataBack(context);
+                          },
+                        ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
