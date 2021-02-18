@@ -16,6 +16,14 @@ class MyApp extends StatelessWidget {
       title: 'FlashCards',
       debugShowCheckedModeBanner: false,
       home: Flashcard(),
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          //primaryColor: Colors.blueGrey
+          buttonColor: Colors.black26,
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: Colors.grey
+        ),
+      ),
     );
   }
 }
@@ -84,16 +92,18 @@ class _FlashcardState extends State<Flashcard> {
                   children: [
                     RaisedButton.icon(
                       elevation: 20,
-                      color: Colors.white,
+                      //color: Colors.white,
                       icon: Icon(Icons.chevron_left),
                       label: Text("Prev"),
                       onPressed: _previousPage,
                     ),
                     RaisedButton.icon(
                       elevation: 20,
-                      color: Colors.white,
-                      icon: Icon(Icons.chevron_right),
+                      //color: Colors.white,
                       label: Text("Next"),
+                      icon: Icon(
+                          Icons.chevron_right,
+                      ),
                       onPressed: _nextPage,
                     ),
                   ],
@@ -104,7 +114,7 @@ class _FlashcardState extends State<Flashcard> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue,
+        //backgroundColor: Colors.blue,
         child: Icon(Icons.add),
         onPressed: () {
           _awaitReturnValueFromSecondScreen(context);
