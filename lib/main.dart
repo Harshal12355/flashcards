@@ -4,7 +4,7 @@ import 'package:flashcards/Properties.dart';
 import 'package:flutter/material.dart';
 import 'package:flip_card/flip_card.dart';
 import 'Add_Cards.dart';
-import 'ViewList.dart'
+import 'ViewList.dart';
 void main() {
   runApp(MyApp());
 }
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           //primaryColor: Colors.blueGrey
           buttonColor: Colors.black26,
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.grey
         ),
       ),
@@ -37,6 +37,7 @@ class Flashcard extends StatefulWidget {
 class _FlashcardState extends State<Flashcard> {
   String question;
   String answer;
+
   List<Properties> _properties = [
     Properties(question: "Andare", answer: "To go"),
     Properties(question: "Studiare", answer: "To study"),
@@ -55,7 +56,7 @@ class _FlashcardState extends State<Flashcard> {
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: const <Widget>[
+          children:  <Widget>[
             DrawerHeader(
               child: Text(
                 'Welcome',
@@ -68,6 +69,7 @@ class _FlashcardState extends State<Flashcard> {
             ListTile(
               leading: Icon(Icons.list),
               title: Text('View List'),
+              onTap: _nav,
             ),
           ],
         ),
@@ -102,8 +104,8 @@ class _FlashcardState extends State<Flashcard> {
                 height: 350,
                 width: 350,
                 child: FlipCard(
-                  front: Flashcard_View(text: _properties[_currentIndex].question, type: "Italian",),
-                  back: Flashcard_View(text: _properties[_currentIndex].answer, type: "English",),
+                  front: Flashcard_View(text: _properties[_currentIndex].question, type: "Italian",), // making a flashcard
+                  back: Flashcard_View(text: _properties[_currentIndex].answer, type: "English",), // making a flashcard
                 ),
               ),
               Padding(
@@ -116,7 +118,7 @@ class _FlashcardState extends State<Flashcard> {
                       //color: Colors.white,
                       icon: Icon(Icons.chevron_left),
                       label: Text("Prev"),
-                      onPressed: _previousPage,
+                      onPressed: _previousPage, // helps go to previous page
                     ),
                     RaisedButton.icon(
                       elevation: 20,
@@ -125,7 +127,7 @@ class _FlashcardState extends State<Flashcard> {
                       icon: Icon(
                           Icons.chevron_right,
                       ),
-                      onPressed: _nextPage,
+                      onPressed: _nextPage, // helps go to next page
                     ),
                   ],
                 ),
@@ -138,7 +140,7 @@ class _FlashcardState extends State<Flashcard> {
         //backgroundColor: Colors.blue,
         child: Icon(Icons.add),
         onPressed: () {
-          _awaitReturnValueFromSecondScreen(context);
+          _awaitReturnValueFromAddCardsScreen(context);
         },
       ),
     );
@@ -152,12 +154,21 @@ class _FlashcardState extends State<Flashcard> {
 
   void _previousPage() {
     setState(() {
-      _currentIndex = _currentIndex - 1 >= 0 ? _currentIndex - 1 : _properties.length - 1;
+      _currentIndex =
+      _currentIndex - 1 >= 0 ? _currentIndex - 1 : _properties.length - 1;
     });
   }
 
-  void _awaitReturnValueFromSecondScreen(BuildContext context) async {
+  void _nav() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) =>
+          ViewListPage(properties: _properties,)
+      ),
+    );
+  }
 
+  void _awaitReturnValueFromAddCardsScreen(BuildContext context) async {
     // start the SecondScreen and wait for it to finish with a result
     final result = await Navigator.push(
         context,

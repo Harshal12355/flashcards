@@ -21,25 +21,9 @@ class _addState extends State<add> {
         title: Text("Add Cards"),
         //backgroundColor: Colors.blue,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding:  EdgeInsets.fromLTRB(0, 30, 100, 0),
-            child: Container(
-              child: Text(
-                  'Please enter card information',
-                style: TextStyle(
-                  //color: Colors.white,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(),
-          Center(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(50, 180, 50, 60),
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -78,9 +62,8 @@ class _addState extends State<add> {
                 ],
               ),
             ),
-          ),
-        ],
       ),
+
     );
   }
 
